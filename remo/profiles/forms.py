@@ -299,7 +299,7 @@ class RotmNomineeForm(happyforms.Form):
             raise ValidationError('You cannot nominate a non Rep user.')
         return cdata
 
-    def save(self, nominated_by, *args, **kwargs):
+    def save(self, nominated_by=None, *args, **kwargs):
         if (self.instance and not self.instance.is_rotm_nominee and
                 nominated_by != self.instance.user and
                 self.cleaned_data['is_rotm_nominee']):
